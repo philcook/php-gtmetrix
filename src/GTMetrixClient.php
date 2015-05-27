@@ -9,7 +9,7 @@ namespace Entrecore\GTMetrixClient;
  *
  *     $client = new GTMetrixClient();
  *     $client->setUsername('your@email.com');
- *     $client->setAPIKey('your-gtmetrix-api-key);
+ *     $client->setAPIKey('your-gtmetrix-api-key');
  *
  *     $client->getLocations();
  *     $client->getBrowsers();
