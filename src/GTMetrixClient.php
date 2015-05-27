@@ -2,6 +2,19 @@
 
 namespace Opsbears\GTMetrixClient;
 
+/**
+ * The basic GTMetrix client class.
+ *
+ * Usage:
+ *
+ *     $client = new GTMetrixClient();
+ *     $client->setUsername('your@email.com');
+ *     $client->setAPIKey('your-gtmetrix-api-key);
+ *
+ *     $client->getLocations();
+ *     $client->getBrowsers();
+ *     $test = $client->startTest();
+ */
 class GTMetrixClient {
 	/**
 	 * API endpoint. Normally you don't need to change this.
@@ -47,6 +60,16 @@ class GTMetrixClient {
 		return $this->apiKey;
 	}
 
+	/**
+	 * @param string $url
+	 * @param array $data
+	 * @param bool  $json
+	 *
+	 * @return array|string
+	 *
+	 * @throws GTMetrixConfigurationException
+	 * @throws GTMetrixException
+	 */
 	protected function apiCall($url, $data = array(), $json = true) {
 		if (!$this->username || !$this->apiKey) {
 			throw new GTMetrixConfigurationException('Username and API key must be set up before using API calls!' .
@@ -63,11 +86,11 @@ class GTMetrixClient {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CAPATH, dirname(__DIR__) . '/data/ca-bundle.crt');
 		$result = curl_exec($ch);
-		$status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		curl_close ($ch);
 
-		if (\preg_match('/^2', $status_code)) {
-			throw new GTMetrixException('API error ' . $status_code . ': ' . $result);
+		if (!\preg_match('/^(2|3)/', $statusCode)) {
+			throw new GTMetrixException('API error ' . $statusCode . ': ' . $result);
 		}
 
 		if ($json) {
@@ -147,7 +170,7 @@ class GTMetrixClient {
 	 * @param null|string   $httpUser
 	 * @param null|string   $httpPassword
 	 *
-	 * @return string test ID.
+	 * @return GTMetrixTest
 	 * @throws GTMetrixConfigurationException
 	 * @throws GTMetrixException
 	 */
@@ -168,10 +191,43 @@ class GTMetrixClient {
 			$data['login-pass'] = $httpPassword;
 		}
 		$result = $this->apiCall('/test', $data);
-		return $result['test_id'];
+
+		$test = new GTMetrixTest();
+		$test->setId($result['test_id']);
+		$test->setPollStateUrl($result['poll_state_url']);
+
+		return $test;
 	}
 
-	public function getTestStatus() {
+	/**
+	 * @param GTMetrixTest|string $test GTMetrixTest or test ID. This object will be updated
+	 *
+	 * @return GTMetrixTest
+	 */
+	public function getTestStatus($test) {
+		if ($test instanceof GTMetrixTest) {
+			$testId = $test->getId();
+		} else {
+			$testId = $test;
+			$test = new GTMetrixTest();
+			$test->setId($testId);
+		}
 
+		$testStatus = $this->apiCall('/test/' . urlencode($testId));
+		$test->setState($testStatus['state']);
+		$test->setError($testStatus['error']);
+		if ($test->getState() == GTMetrixTest::STATE_COMPLETED) {
+			$test->setReportUrl($testStatus['results']['report_url']);
+			$test->setPagespeedScore($testStatus['results']['pagespeed_score']);
+			$test->setYslowScore($testStatus['results']['yslow_score']);
+			$test->setHtmlBytes($testStatus['results']['html_bytes']);
+			$test->setHtmlLoadTime($testStatus['results']['html_load_time']);
+			$test->setPageBytes($testStatus['results']['page_bytes']);
+			$test->setPageLoadTime($testStatus['results']['page_load_time']);
+			$test->setPageElements($testStatus['results']['page_elements']);
+			$test->setResources($testStatus['resources']);
+		}
+
+		return $test;
 	}
 }

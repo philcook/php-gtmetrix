@@ -2,7 +2,7 @@
 
 use Opsbears\GTMetrixClient\GTMetrixClient;
 
-abstract class GTMetrixTest extends PHPUnit_Framework_TestCase {
+abstract class AbstractGTMetrixTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @var GTMetrixClient
 	 */

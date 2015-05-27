@@ -1,5 +1,5 @@
 {
-	"name": "opsbears/gtmetrix",
+	"name": "entrecore/gtmetrix",
 	"description": "GTMetrix API client for PHP",
 	"license": "MIT",
 	"autoload": {
