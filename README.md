@@ -33,19 +33,21 @@ This client library can be installed using [composer](https://getcomposer.org/):
     
 ## Using
 
-     use Entrecore\GTMetrixClient\GTMetrixClient;
-     
-     $client = new GTMetrixClient();
-     $client->setUsername('your@email.com');
-     $client->setAPIKey('your-gtmetrix-api-key);
+```php
+use Entrecore\GTMetrixClient\GTMetrixClient;
 
-     $client->getLocations();
-     $client->getBrowsers();
-     $test = $client->startTest();
+$client = new GTMetrixClient();
+$client->setUsername('your@email.com');
+$client->setAPIKey('your-gtmetrix-api-key);
+
+$client->getLocations();
+$client->getBrowsers();
+$test = $client->startTest();
  
-     //Wait for result
- 	 while ($test->getState() != GTMetrixTest::STATE_COMPLETED &&
-         $test->getState() != GTMetrixTest::STATE_ERROR) {
-         $client->getTestStatus($test);
-         sleep(5);
-     }
+//Wait for result
+while ($test->getState() != GTMetrixTest::STATE_COMPLETED &&
+    $test->getState() != GTMetrixTest::STATE_ERROR) {
+    $client->getTestStatus($test);
+    sleep(5);
+}
+```
