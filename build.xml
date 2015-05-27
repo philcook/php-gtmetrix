@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="all">
+    <property file="./build.properties" />
+
+    <tstamp/>
+    <property name="build" value="${DSTAMP}${TSTAMP}" />
+
+    <target name="unittest">
+        <echo msg="Running PHPUnit tests..." />
+        <if>
+            <os family="windows" />
+            <then>
+                <property name="phpunit" value="vendor\bin\phpunit" />
+            </then>
+            <else>
+                <property name="phpunit" value="./vendor/bin/phpunit" />
+            </else>
+        </if>
+        <exec command="${phpunit} -c phpunit.xml" checkreturn="true" logoutput="true" />
+        <echo msg="...done" />
+    </target>
+
+    <target name="apidoc">
+        <echo msg="Generating API documentation..." />
+        <mkdir dir="./doc/" />
+        <mkdir dir="./doc/tmp" />
+        <mkdir dir="./build" />
+        <mkdir dir="./build/doc" />
+        <mkdir dir="./build/doc/src" />
+        <copy file="./composer.json" todir="./build/doc" />
+        <copy todir="./build/doc/src">
+            <fileset dir="src" />
+        </copy>
+        <exec
+                command="composer install --no-dev --no-autoloader --ignore-platform-reqs --working-dir build/doc"
+                checkreturn="true" />
+
+        <if>
+            <os family="windows" />
+            <then>
+                <property name="apigen" value="vendor\bin\apigen" />
+            </then>
+            <else>
+                <property name="apigen" value="./vendor/bin/apigen" />
+            </else>
+        </if>
+        <exec
+                command="${apigen} generate --title '${title}' --main=${namespace} --tree --php --source build/doc --destination doc/tmp --exclude=*tests* --exclude=*testdata* --template-theme bootstrap --deprecated"
+                checkreturn="true" logoutput="true" />
+        <delete file="./doc/*.html" quiet="true"  />
+        <delete file="./doc/*.js" quiet="true" />
+        <delete dir="./doc/resources" includeemptydirs="true" />
+        <copy todir="./doc/">
+            <fileset dir="./doc/tmp/" />
+        </copy>
+        <delete dir="./doc/tmp" quiet="true" />
+        <echo msg="...done" />
+    </target>
+
+    <target name="tests">
+        <phingcall target="unittest" />
+    </target>
+
+    <target name="all">
+        <phingcall target="unittest" />
+        <phingcall target="apidoc" />
+    </target>
+</project>

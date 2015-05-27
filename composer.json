@@ -1,0 +1,19 @@
+{
+	"name": "opsbears/gtmetrix",
+	"description": "GTMetrix API client for PHP",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Opsbears\\GTMetrixClient\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=5.3.3",
+		"ext-curl": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4.6",
+		"apigen/apigen": "~4.1",
+		"phing/phing": "~2.11"
+	}
+}
