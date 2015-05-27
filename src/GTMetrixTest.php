@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Opsbears\GTMetrixClient;
+namespace Entrecore\GTMetrixClient;
 
 /**
  * GTMetrix test object
@@ -260,5 +260,12 @@ class GTMetrixTest {
 	 */
 	public function setResources($resources) {
 		$this->resources = $resources;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function __toString() {
+		return $this->getId();
 	}
 }

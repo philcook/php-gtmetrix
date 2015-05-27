@@ -1,9 +1,11 @@
 <?php
 
 
-namespace Opsbears\GTMetrixClient;
+namespace Entrecore\GTMetrixClient;
 
-
+/**
+ * GTMetrix browser object
+ */
 class GTMetrixBrowser {
 	/**
 	 * @var string
@@ -149,4 +151,12 @@ class GTMetrixBrowser {
 		$this->setFeatures($features);
 		$this->setPlatform($data['platform']);
 	}
+
+	/**
+	 * @return string
+	 */
+	public function __toString() {
+		return $this->getId();
+	}
+
 }

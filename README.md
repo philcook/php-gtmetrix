@@ -1,4 +1,4 @@
-# GTMetrix API client
+# GTMetrix API client for PHP
 
 ## Credits
 
@@ -30,3 +30,22 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 This client library can be installed using [composer](https://getcomposer.org/):
 
     composer require entrecore/gtmetrix
+    
+## Using
+
+     use Entrecore\GTMetrixClient\GTMetrixClient;
+     
+     $client = new GTMetrixClient();
+     $client->setUsername('your@email.com');
+     $client->setAPIKey('your-gtmetrix-api-key);
+
+     $client->getLocations();
+     $client->getBrowsers();
+     $test = $client->startTest();
+ 
+     //Wait for result
+ 	 while ($test->getState() != GTMetrixTest::STATE_COMPLETED &&
+         $test->getState() != GTMetrixTest::STATE_ERROR) {
+         $client->getTestStatus($test);
+         sleep(5);
+     }

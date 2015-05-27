@@ -1,9 +1,11 @@
 <?php
 
 
-namespace Opsbears\GTMetrixClient;
+namespace Entrecore\GTMetrixClient;
 
-
+/**
+ * GTMetrix location object.
+ */
 class GTMetrixLocation {
 	/**
 	 * @var string
@@ -87,5 +89,12 @@ class GTMetrixLocation {
 		$this->setName($data['name']);
 		$this->setDefault($data['default']);
 		$this->setBrowserIds($data['browsers']);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function __toString() {
+		return $this->getId();
 	}
 }

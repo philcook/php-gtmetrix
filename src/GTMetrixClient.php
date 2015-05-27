@@ -1,6 +1,6 @@
 <?php
 
-namespace Opsbears\GTMetrixClient;
+namespace Entrecore\GTMetrixClient;
 
 /**
  * The basic GTMetrix client class.
@@ -14,6 +14,14 @@ namespace Opsbears\GTMetrixClient;
  *     $client->getLocations();
  *     $client->getBrowsers();
  *     $test = $client->startTest();
+ *
+ *     //Wait for result
+ * 	   while ($test->getState() != GTMetrixTest::STATE_COMPLETED &&
+ *         $test->getState() != GTMetrixTest::STATE_ERROR) {
+ *         $client->getTestStatus($test);
+ *         sleep(5);
+ *     }
+ *
  */
 class GTMetrixClient {
 	/**

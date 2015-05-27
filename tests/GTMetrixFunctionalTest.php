@@ -1,6 +1,6 @@
 <?php
 
-use Opsbears\GTMetrixClient\GTMetrixTest;
+use Entrecore\GTMetrixClient\GTMetrixTest;
 
 require_once(__DIR__ . '/AbstractGTMetrixTest.php');
 
@@ -11,14 +11,14 @@ class GTMetrixFunctionalTest extends AbstractGTMetrixTest {
 	public function testGetBrowsers() {
 		$browsers = $this->client->getBrowsers();
 		foreach ($browsers as $browser) {
-			$this->assertInstanceOf('Opsbears\GTMetrixClient\GTMetrixBrowser', $browser);
+			$this->assertInstanceOf('Entrecore\GTMetrixClient\GTMetrixBrowser', $browser);
 		}
 	}
 
 	public function testGetLocations() {
 		$locations = $this->client->getLocations();
 		foreach ($locations as $location) {
-			$this->assertInstanceOf('Opsbears\GTMetrixClient\GTMetrixLocation', $location);
+			$this->assertInstanceOf('Entrecore\GTMetrixClient\GTMetrixLocation', $location);
 		}
 	}
 
@@ -28,6 +28,7 @@ class GTMetrixFunctionalTest extends AbstractGTMetrixTest {
 		while ($test->getState() != GTMetrixTest::STATE_COMPLETED &&
 			$test->getState() != GTMetrixTest::STATE_ERROR) {
 			$this->client->getTestStatus($test);
+			sleep(5);
 		}
 	}
 }
