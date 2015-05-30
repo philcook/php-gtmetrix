@@ -92,12 +92,17 @@ class GTMetrixClient {
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		curl_setopt($ch, CURLOPT_USERPWD, $this->username . ':' . $this->apiKey);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_CAPATH, dirname(__DIR__) . '/data/ca-bundle.crt');
+		curl_setopt($ch, CURLOPT_CAINFO, dirname(__DIR__) . '/data/ca-bundle.crt');
 		$result = curl_exec($ch);
 		$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$curlErrNo = curl_errno($ch);
+		$curlError = curl_error($ch);
 		curl_close ($ch);
 
 		if (!\preg_match('/^(2|3)/', $statusCode)) {
+			if ($statusCode == 0) {
+				throw new GTMetrixException('cURL error ' . $curlErrNo . ': ' . $curlError);
+			}
 			throw new GTMetrixException('API error ' . $statusCode . ': ' . $result);
 		}
 
