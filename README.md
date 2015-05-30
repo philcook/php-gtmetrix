@@ -1,5 +1,8 @@
 # GTMetrix API client for PHP
 
+[![Packagist](https://img.shields.io/packagist/v/entrecore/gtmetrix.svg)](https://packagist.org/packages/entrecore/gtmetrix)
+[![Packagist](https://img.shields.io/packagist/l/entrecore/gtmetrix.svg)](https://packagist.org/packages/entrecore/gtmetrix)
+
 ## Credits
 
 This API client has been sponsored by [Entrecore](http://www.entrecore.com) and developed by
