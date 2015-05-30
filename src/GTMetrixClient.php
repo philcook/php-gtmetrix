@@ -98,6 +98,9 @@ class GTMetrixClient {
 		curl_close ($ch);
 
 		if (!\preg_match('/^(2|3)/', $statusCode)) {
+			if ($statusCode == 0) {
+				throw new GTMetrixException('cURL error ' . curl_errno($ch) . ': ' . curl_error($ch));
+			}
 			throw new GTMetrixException('API error ' . $statusCode . ': ' . $result);
 		}
 
