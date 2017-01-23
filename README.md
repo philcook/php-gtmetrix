@@ -45,7 +45,7 @@ $client->setAPIKey('your-gtmetrix-api-key');
 
 $client->getLocations();
 $client->getBrowsers();
-$test = $client->startTest();
+$test = $client->startTest('http://www.example.com/');
  
 //Wait for result
 while ($test->getState() != GTMetrixTest::STATE_COMPLETED &&
