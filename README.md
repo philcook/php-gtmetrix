@@ -38,6 +38,7 @@ This client library can be installed using [composer](https://getcomposer.org/):
 
 ```php
 use Entrecore\GTMetrixClient\GTMetrixClient;
+use Entrecore\GTMetrixClient\GTMetrixTest;
 
 $client = new GTMetrixClient();
 $client->setUsername('your@email.com');
