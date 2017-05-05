@@ -73,6 +73,61 @@ class GTMetrixTest {
 	 */
 	protected $pageElements;
 
+    /**
+     * @var int
+     */
+    protected $redirectDuration;
+
+    /**
+     * @var int
+     */
+    protected $connectDuration;
+
+    /**
+     * @var int
+     */
+    protected $backendDuration;
+
+    /**
+     * @var int
+     */
+    protected $firstPaintTime;
+
+    /**
+     * @var int
+     */
+    protected $domInteractiveTime;
+
+    /**
+     * @var int
+     */
+    protected $domContentLoadedTime;
+
+    /**
+     * @var int
+     */
+    protected $domContentLoadedDuration;
+
+    /**
+     * @var int
+     */
+    protected $onloadTime;
+
+    /**
+     * @var int
+     */
+    protected $onloadDuration;
+
+    /**
+     * @var int
+     */
+    protected $fullyLoadedTime;
+
+    /**
+     * @var int
+     */
+    protected $rumSpeedIndex;
+
 	/**
 	 * Links to more resources available
 	 *
@@ -247,6 +302,160 @@ class GTMetrixTest {
 	public function setPageElements($pageElements) {
 		$this->pageElements = $pageElements;
 	}
+
+    /**
+     * @return int
+     */
+    public function getRedirectDuration() {
+        return $this->redirectDuration;
+    }
+
+    /**
+     * @param int $redirectDuration
+     */
+    public function setRedirectDuration($redirectDuration) {
+        $this->redirectDuration = $redirectDuration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getConnectDuration() {
+        return $this->connectDuration;
+    }
+
+    /**
+     * @param int $connectDuration
+     */
+    public function setConnectDuration($connectDuration) {
+        $this->connectDuration = $connectDuration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBackendDuration() {
+        return $this->backendDuration;
+    }
+
+    /**
+     * @param int $backendDuration
+     */
+    public function setBackendDuration($backendDuration) {
+        $this->backendDuration = $backendDuration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFirstPaintTime() {
+        return $this->firstPaintTime;
+    }
+
+    /**
+     * @param int $firstPaintTime
+     */
+    public function setFirstPaintTime($firstPaintTime) {
+        $this->firstPaintTime = $firstPaintTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDomInteractiveTime() {
+        return $this->domInteractiveTime;
+    }
+
+    /**
+     * @param int $domInteractiveTime
+     */
+    public function setDomInteractiveTime($domInteractiveTime) {
+        $this->domInteractiveTime = $domInteractiveTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDomContentLoadedTime() {
+        return $this->domContentLoadedTime;
+    }
+
+    /**
+     * @param int $domContentLoadedTime
+     */
+    public function setDomContentLoadedTime($domContentLoadedTime) {
+        $this->domContentLoadedTime = $domContentLoadedTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDomContentLoadedDuration() {
+        return $this->domContentLoadedDuration;
+    }
+
+    /**
+     * @param int $domContentLoadedDuration
+     */
+    public function setDomContentLoadedDuration($domContentLoadedDuration) {
+        $this->domContentLoadedDuration = $domContentLoadedDuration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOnloadTime() {
+        return $this->onloadTime;
+    }
+
+    /**
+     * @param int $onloadTime
+     */
+    public function setOnloadTime($onloadTime) {
+        $this->onloadTime = $onloadTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOnloadDuration() {
+        return $this->onloadDuration;
+    }
+
+    /**
+     * @param int $onloadDuration
+     */
+    public function setOnloadDuration($onloadDuration) {
+        $this->onloadDuration = $onloadDuration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFullyLoadedTime() {
+        return $this->fullyLoadedTime;
+    }
+
+    /**
+     * @param int $fullyLoadedTime
+     */
+    public function setFullyLoadedTime($fullyLoadedTime) {
+        $this->fullyLoadedTime = $fullyLoadedTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRumSpeedIndex() {
+        return $this->pageElements;
+    }
+
+    /**
+     * @param int $rumSpeedIndex
+     */
+    public function setRumSpeedIndex($rumSpeedIndex) {
+        $this->rumSpeedIndex = $rumSpeedIndex;
+    }
 
 	/**
 	 * @return array

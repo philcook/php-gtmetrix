@@ -238,6 +238,17 @@ class GTMetrixClient {
 			$test->setPageBytes($testStatus['results']['page_bytes']);
 			$test->setPageLoadTime($testStatus['results']['page_load_time']);
 			$test->setPageElements($testStatus['results']['page_elements']);
+			$test->setRedirectDuration($testStatus['results']['redirect_duration']);
+			$test->setConnectDuration($testStatus['results']['connect_duration']);
+			$test->setBackendDuration($testStatus['results']['backend_duration']);
+			$test->setFirstPaintTime($testStatus['results']['first_paint_time']);
+			$test->setDomInteractiveTime($testStatus['results']['dom_interactive_time']);
+			$test->setDomContentLoadedTime($testStatus['results']['dom_content_loaded_time']);
+			$test->setDomContentLoadedDuration($testStatus['results']['dom_content_loaded_duration']);
+			$test->setOnloadTime($testStatus['results']['onload_time']);
+			$test->setOnloadDuration($testStatus['results']['onload_duration']);
+			$test->setFullyLoadedTime($testStatus['results']['fully_loaded_time']);
+			$test->setRumSpeedIndex($testStatus['results']['rum_speed_index']);
 			$test->setResources($testStatus['resources']);
 		}
 
