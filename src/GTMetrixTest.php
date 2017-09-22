@@ -447,7 +447,7 @@ class GTMetrixTest {
      * @return int
      */
     public function getRumSpeedIndex() {
-        return $this->pageElements;
+        return $this->rumSpeedIndex;
     }
 
     /**
