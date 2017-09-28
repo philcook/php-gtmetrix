@@ -1,19 +1,11 @@
 # GTMetrix API client for PHP
 
-[![Packagist](https://img.shields.io/packagist/v/entrecore/gtmetrix.svg)](https://packagist.org/packages/entrecore/gtmetrix)
-[![Packagist](https://img.shields.io/packagist/l/entrecore/gtmetrix.svg)](https://packagist.org/packages/entrecore/gtmetrix)
-
-## Credits
-
-This API client has been sponsored by [Entrecore](http://www.entrecore.com) and developed by
-[Opsbears](https://www.opsbears.com/).
-
-[![Entrecore](assets/entrecore.png)](http://www.entrecore.com)
-[![Opsbears](assets/opsbears.png)](https://www.opsbears.com/)
+[![Packagist](https://img.shields.io/packagist/v/philcook/gtmetrix.svg)](https://packagist.org/packages/philcook/gtmetrix)
+[![Packagist](https://img.shields.io/packagist/l/philcook/gtmetrix.svg)](https://packagist.org/packages/philcook/gtmetrix)
 
 ## License
 
-Copyright (c) 2015 Opsbears
+Copyright (c) 2017 Opsbears
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
@@ -32,7 +24,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 
 This client library can be installed using [composer](https://getcomposer.org/):
 
-    composer require entrecore/gtmetrix
+    composer require philcook/gtmetrix
     
 ## Using
 
