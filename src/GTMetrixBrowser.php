@@ -127,10 +127,7 @@ class GTMetrixBrowser {
 	 * @return bool
 	 */
 	public function hasFeature($feature) {
-		if (\array_search($feature, $this->features) !== false) {
-			return true;
-		}
-		return false;
+		return (\array_search($feature, $this->features) !== false);
 	}
 
 	/**
