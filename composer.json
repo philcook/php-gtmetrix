@@ -2,7 +2,7 @@
 	"name": "philcook/gtmetrix",
 	"description": "GTMetrix API client for PHP",
 	"license": "MIT",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"autoload": {
 		"psr-4": {
 			"Entrecore\\GTMetrixClient\\": "src/"
