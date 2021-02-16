@@ -1,6 +1,6 @@
 <?php
 
-use Entrecore\GTMetrixClient\GTMetrixClient;
+use LightningStudio\GTMetrixClient\GTMetrixClient;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Entrecore\GTMetrixClient;
+namespace LightningStudio\GTMetrixClient;
 
 /**
  * The basic GTMetrix client class.

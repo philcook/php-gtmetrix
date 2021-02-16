@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Entrecore\GTMetrixClient;
+namespace LightningStudio\GTMetrixClient;
 
 /**
  * GTMetrix location object.
