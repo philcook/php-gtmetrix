@@ -1,9 +1,15 @@
-dist: bionic
 language: php
+
+os:
+  - linux
+
+dist: bionic
+
 php:
   - 8.0
   - 7.4
   - 7.3
+
 install:
   - composer remove --dev apigen/apigen
   - composer install

@@ -1,11 +1,13 @@
 <?php
 
 use Entrecore\GTMetrixClient\GTMetrixClient;
+use PHPUnit\Framework\TestCase;
 
 /**
  *
  */
-abstract class AbstractGTMetrixTest extends PHPUnit_Framework_TestCase {
+abstract class AbstractGTMetrixTest extends TestCase
+{
 	/**
 	 * @var GTMetrixClient
 	 */
@@ -14,9 +16,11 @@ abstract class AbstractGTMetrixTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Set up the client from environment variables.
 	 */
-	public function setUp() {
-		$this->client = new GTMetrixClient();
-		$this->client->setUsername(getenv('GTMETRIX_USERNAME'));
-		$this->client->setAPIKey(getenv('GTMETRIX_APIKEY'));
-	}
+
+    protected function setUp(): void {
+        parent::setUp();
+        $this->client = new GTMetrixClient();
+        $this->client->setUsername(getenv('GTMETRIX_USERNAME'));
+        $this->client->setAPIKey(getenv('GTMETRIX_APIKEY'));
+    }
 }

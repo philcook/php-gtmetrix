@@ -1,13 +1,19 @@
-<phpunit convertErrorsToExceptions="true"
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="false"
          bootstrap="vendor/autoload.php">
-    <testsuites>
-        <testsuite>
-            <directory suffix=".php">tests</directory>
-        </testsuite>
-    </testsuites>
-    <logging>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-    </logging>
+  <coverage>
+    <report>
+      <clover outputFile="build/logs/clover.xml"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="default">
+      <directory suffix=".php">tests</directory>
+    </testsuite>
+  </testsuites>
+  <logging/>
 </phpunit>
