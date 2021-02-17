@@ -92,6 +92,11 @@ class GTMetrixTest {
      * @var int
      */
     protected $firstPaintTime;
+	
+    /**
+     * @var int
+     */
+    protected $firstContentfulPaintTime;
 
     /**
      * @var int
@@ -359,6 +364,20 @@ class GTMetrixTest {
         $this->firstPaintTime = $firstPaintTime;
     }
 
+    /**
+     * @return int
+     */
+    public function getFirstContentfulPaintTime() {
+        return $this->firstContentfulPaintTime;
+    }
+    
+    /**
+     * @param int $firstPaintTime
+     */
+    public function setFirstContentfulPaintTime($firstContentfulPaintTime) {
+        $this->firstContentfulPaintTime = $firstContentfulPaintTime;
+    }
+    
     /**
      * @return int
      */
