@@ -1,7 +1,9 @@
 # GTMetrix API client for PHP
 
-[![Packagist](https://img.shields.io/packagist/v/philcook/gtmetrix.svg)](https://packagist.org/packages/philcook/gtmetrix)
-[![Packagist](https://img.shields.io/packagist/l/philcook/gtmetrix.svg)](https://packagist.org/packages/philcook/gtmetrix)
+[![Latest Stable Version](https://poser.pugx.org/philcook/gtmetrix/v)](//packagist.org/packages/philcook/gtmetrix)
+[![Build Status](https://travis-ci.org/philcook/php-gtmetrix.svg)](https://travis-ci.org/philcook/php-gtmetrix)
+[![Total Downloads](https://poser.pugx.org/philcook/gtmetrix/downloads)](//packagist.org/packages/philcook/gtmetrix)
+[![License](https://poser.pugx.org/philcook/gtmetrix/license)](//packagist.org/packages/philcook/gtmetrix)
 
 ## Installing
 
